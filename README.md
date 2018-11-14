@@ -1,0 +1,1 @@
+# sinatra-docker-api-template
