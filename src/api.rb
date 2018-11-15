@@ -25,6 +25,10 @@ class Api < Sinatra::Base
   
   get '/ui' do
     content_type :html
-    '<h1 class="sans">Input</h1><input type="text" value="Hello World!" placeholder="Neu" />'
+    '<h1 class="sans">Input</h1><input id="input" type="text" value="Hello World!" placeholder="Neu" /><span id="result"></span>'
+  end
+  
+  get '/js' do
+    'document.getElementById("input").addEventListener("change", (e) => {fetch("http://localhost:4567/greet/"+document.getElementById("input").value).then(r => r.json()).then(j => document.getElementById("result").innerText = j.message).catch(e => console.error(e));})'
   end
 end
