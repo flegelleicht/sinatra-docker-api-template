@@ -1,2 +1,2 @@
-require './api'
+require './src/api'
 run Api

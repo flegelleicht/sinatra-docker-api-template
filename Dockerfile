@@ -8,4 +8,4 @@ WORKDIR $API_HOME
 COPY Gemfile $API_HOME
 RUN bundle install -j 20
 
-COPY api.rb $API_HOME
+ADD src $API_HOME/src
