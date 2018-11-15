@@ -24,6 +24,13 @@
       .then(r => r.text())
       .then(t => document.getElementById('ui').innerHTML = t)
       .catch(e => console.error(e));
+    fetch('http://localhost:4567/js')
+      .then(r => r.text())
+      .then(t => {
+        let s = document.createElement('script');
+        s.textContent = t;
+        document.head.appendChild(s); })
+      .catch(e => console.error(e));
   </script>
 </body>
 </html>
