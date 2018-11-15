@@ -23,6 +23,11 @@ class Api < Sinatra::Base
     '{"a":{"b":{"c":1}, "d":2}}'
   end
   
+  get '/greet/?:name?' do
+    content_type :json
+    '{"message":"Hello ' + (params[:name] || 'nobody') + '!"}'
+  end
+  
   get '/ui' do
     content_type :html
     '<h1 class="sans">Input</h1><input id="input" type="text" value="Hello World!" placeholder="Neu" /><span id="result"></span>'
