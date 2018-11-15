@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Play</title>
+  <style>
+    .sans {
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="stuff"></div>
+  <div id="ui"></div>
+  <script>
+    fetch('http://localhost:4567/json')
+      .then(r => r.text())
+      .then(t => document.getElementById('stuff').innerText = t)
+      .catch(e => console.error(e));
+    fetch('http://localhost:4567/ui')
+      .then(r => r.text())
+      .then(t => document.getElementById('ui').innerHTML = t)
+      .catch(e => console.error(e));
+  </script>
+</body>
+</html>
